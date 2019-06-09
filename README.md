@@ -4,7 +4,7 @@ Tetris game written in Python 3.7 using the [Pygame](https://www.pygame.org/news
 I made this to show that I actually learned something from my first foray into the world of Python. And also for my own entertainment. Tetris is fun.
 
 # How to play
-Install Pygame. Instructions for installation can be found over at the [Getting Started page on the Pygame website](https://www.pygame.org/wiki/GettingStarted).
+Install Python and Pygame. Instructions for installing Pygame can be found at the [Getting Started page](https://www.pygame.org/wiki/GettingStarted).
 
 Open the file named Tetris.pyw and enjoy the game.
 
