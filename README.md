@@ -6,7 +6,7 @@ I made this to show that I actually learned something from my first foray into t
 # How to play
 Install Python and Pygame. Instructions for installing Pygame can be found at the [Getting Started page](https://www.pygame.org/wiki/GettingStarted).
 
-Open the file named Tetris.pyw and enjoy the game.
+Open the file named `Tetris.pyw` and enjoy the game.
 
 Keybindings:
 - `Enter`: Does different things like selecting an option from the start menu, pausing the game, and returning to the start screen after you reach the game over screen.
@@ -16,6 +16,7 @@ Keybindings:
 - `Right`: Moves the block to the right.
 - `Z`: Rotates the block counter clockwise.
 - `X`: Rotates the block clockwise.
+- `Space`: Drops the block all the way down.
 
 # Contributors
 @MrAsian
