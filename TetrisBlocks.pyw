@@ -35,7 +35,7 @@ class TetrisBlocks(abc.ABC):
     @staticmethod
     def gameOver():
         for topRow in range(len(TetrisBlocks.grid[0])):
-            if TetrisBlocks.grid[0][topRow]:
+            if TetrisBlocks.grid[3][topRow]:
                 return True;
         return False;
 
@@ -94,7 +94,7 @@ class TetrisBlocks(abc.ABC):
                 westEdgeAllTrue = True
                 for row in range(len(self.dimensions[self.direction])):
                     row = len(self.dimensions[self.direction]) - row - 1
-                    if self.west + col - 1 > 0 and self.dimensions[self.direction][row][col] == True:
+                    if self.west + col - 1 >= 0 and self.dimensions[self.direction][row][col] == True:
                         collideWest = collideWest or TetrisBlocks.grid[self.north + row][self.west + col - 1]
                     if westEdgeAllTrue and self.dimensions[self.direction][row][col] == False:
                         westEdgeAllTrue = False
@@ -157,8 +157,10 @@ class TetrisBlocks(abc.ABC):
         if not self.collideBlockSouth():
             self.rect = self.rect.move(0, 25 * distance)
             self.updateBlockY()
+            return True
         else:
             self.imprint(TetrisBlocks.grid)
+        return False
 
     def rotate(self, rotateDirection):
         self.direction = (self.direction + rotateDirection) % len(self.dimensions)
@@ -192,7 +194,7 @@ class TetrisBlocks(abc.ABC):
 class Block1(TetrisBlocks): # square block
     def __init__(self):
         self.currentColor = pygame.image.load(os.path.join("Graphics", TetrisBlocks.pick_color()))
-        self.rect = pygame.Rect(120, -30, 50, 50)
+        self.rect = pygame.Rect(120, 70, 50, 50)
         self.direction = 0
         self.dimensions = [[[True, True], [True, True]]]
         self.updateBlockX()
@@ -201,7 +203,7 @@ class Block1(TetrisBlocks): # square block
 class Block2(TetrisBlocks): # T block
     def __init__(self):
         self.currentColor = pygame.image.load(os.path.join("Graphics", TetrisBlocks.pick_color()))
-        self.rect = pygame.Rect(120, -30, 75, 50)
+        self.rect = pygame.Rect(120, 70, 75, 50)
         self.direction = 0
         self.dimensions = [[[False, True, False], [True, True, True]],
                            [[True, False], [True, True], [True, False]],
@@ -214,7 +216,7 @@ class Block2(TetrisBlocks): # T block
 class Block3(TetrisBlocks): # L block
     def __init__(self):
         self.currentColor = pygame.image.load(os.path.join("Graphics", TetrisBlocks.pick_color()))
-        self.rect = pygame.Rect(120, -55, 50, 75)
+        self.rect = pygame.Rect(120, 45, 50, 75)
         self.direction = 0
         self.dimensions = [[[True, False], [True, False], [True, True]],
                            [[True, True, True], [True, False, False]],
@@ -226,7 +228,7 @@ class Block3(TetrisBlocks): # L block
 class Block4(TetrisBlocks): # reverse L block
     def __init__(self):
         self.currentColor = pygame.image.load(os.path.join("Graphics", TetrisBlocks.pick_color()))
-        self.rect = pygame.Rect(120, -55, 50, 75)
+        self.rect = pygame.Rect(120, 45, 50, 75)
         self.direction = 0
         self.dimensions = [[[False, True], [False, True], [True, True]],
                            [[True, False, False], [True, True, True]],
@@ -238,7 +240,7 @@ class Block4(TetrisBlocks): # reverse L block
 class Block5(TetrisBlocks): # Z block
     def __init__(self):
         self.currentColor = pygame.image.load(os.path.join("Graphics", TetrisBlocks.pick_color()))
-        self.rect = pygame.Rect(120, -55, 75, 50)
+        self.rect = pygame.Rect(120, 45, 75, 50)
         self.direction = 0
         self.dimensions = [[[False, True], [True, True], [True, False]],
                            [[True, True, False], [False, True, True]]]
@@ -248,7 +250,7 @@ class Block5(TetrisBlocks): # Z block
 class Block6(TetrisBlocks): # reverse Z block
     def __init__(self):
         self.currentColor = pygame.image.load(os.path.join("Graphics", TetrisBlocks.pick_color()))
-        self.rect = pygame.Rect(120, -55, 75, 50)
+        self.rect = pygame.Rect(120, 45, 75, 50)
         self.direction = 0
         self.dimensions = [[[True, False], [True, True], [False, True]],
                            [[False, True, True], [True, True, False]]]
@@ -258,7 +260,7 @@ class Block6(TetrisBlocks): # reverse Z block
 class Block7(TetrisBlocks): # straight block
     def __init__(self):
         self.currentColor = pygame.image.load(os.path.join("Graphics", TetrisBlocks.pick_color()))
-        self.rect = pygame.Rect(120, -80, 25, 100)
+        self.rect = pygame.Rect(120, 20, 25, 100)
         self.direction = 0
         self.dimensions = [[[True], [True], [True], [True]],
                            [[True, True, True, True]]]
