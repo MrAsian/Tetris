@@ -5,26 +5,7 @@ import pygame
 
 class TetrisBlocks(abc.ABC):
     newBlock = True
-    grid = [[False, False, False, False, False, False, False, False, False, False], #0
-            [False, False, False, False, False, False, False, False, False, False], #1
-            [False, False, False, False, False, False, False, False, False, False], #2
-            [False, False, False, False, False, False, False, False, False, False], #3
-            [False, False, False, False, False, False, False, False, False, False], #4
-            [False, False, False, False, False, False, False, False, False, False], #5
-            [False, False, False, False, False, False, False, False, False, False], #6
-            [False, False, False, False, False, False, False, False, False, False], #7
-            [False, False, False, False, False, False, False, False, False, False], #8
-            [False, False, False, False, False, False, False, False, False, False], #9
-            [False, False, False, False, False, False, False, False, False, False], #10
-            [False, False, False, False, False, False, False, False, False, False], #11
-            [False, False, False, False, False, False, False, False, False, False], #12
-            [False, False, False, False, False, False, False, False, False, False], #13
-            [False, False, False, False, False, False, False, False, False, False], #14
-            [False, False, False, False, False, False, False, False, False, False], #15
-            [False, False, False, False, False, False, False, False, False, False], #16
-            [False, False, False, False, False, False, False, False, False, False], #17
-            [False, False, False, False, False, False, False, False, False, False], #18
-            [False, False, False, False, False, False, False, False, False, False]] #19
+    grid = [[False for col in range(10)] for row in range(20)]
 
     @staticmethod
     def resetGrid():
