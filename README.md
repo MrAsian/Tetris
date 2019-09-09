@@ -17,6 +17,3 @@ Keybindings:
 - `Z`: Rotates the block counter clockwise.
 - `X`: Rotates the block clockwise.
 - `Space`: Drops the block all the way down.
-
-# Contributors
-@MrAsian
